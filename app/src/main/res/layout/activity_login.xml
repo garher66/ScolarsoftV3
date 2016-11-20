@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context="com.example.panchito_166.scolarsoftv3.login"
+    android:textAlignment="center"
+    android:elevation="4dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="46dp"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ScolarSoft"
+        android:id="@+id/textView"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:textSize="25dp"
+        android:elevation="5dp" />
+
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/pass2"
+        android:hint="Password"
+        android:background="#fff"
+        android:textColor="#f44336"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:elevation="8dp"
+        android:padding="10dp"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignStart="@+id/email2" />
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="Iniciar"
+        android:id="@+id/iniciarS2"
+        android:background="#4caf50"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:elevation="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/pass2"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff" />
+
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email2"
+        android:hint="Usuario"
+        android:textColor="#f44336"
+        android:background="#fff"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:paddingTop="10dp"
+        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:elevation="8dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:layout_alignTop="@+id/email2"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/person"
+        android:padding="15dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView6"
+        android:layout_alignTop="@+id/pass2"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/key"
+        android:padding="15dp" />
+
+</RelativeLayout>

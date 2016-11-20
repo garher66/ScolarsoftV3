@@ -20,7 +20,7 @@ public class asignaturas extends AppCompatActivity {
     private ListView list;
     public Intent i;
      public String id_materias[];
-   // datos_personales datos_personales_;
+   // datos_personales datos_personales_ kk;
 
     String id_materias1[];
     String id_materias2[];

@@ -87,7 +87,6 @@ public class menu extends AppCompatActivity
         String respuest_metodo = instancia_conexion.enviar_consulta(enviar_parametros);
         JSONArray json = new JSONArray(respuest_metodo);
         String materias[][] = new String[json.length()][7];
-
         for (int i = 0; i < json.length(); i++) {
             JSONObject oneObject = json.getJSONObject(i);
             materias[i][0] = oneObject.getString("ID_ASIGNATURA");
@@ -103,6 +102,7 @@ public class menu extends AppCompatActivity
             datos_personales_.setNombre_nivel(oneObject.getString("NOMBRE_NIVEL"));
             datos_personales_.setCorreo(oneObject.getString("CORREO"));
         }
+
         datos_personales_.setMateria(materias);
     }
 
@@ -219,8 +219,9 @@ public class menu extends AppCompatActivity
 
 
         } else if (id == R.id.nav_gallery) {
-            //Intent i =  new Intent(getApplicationContext(),pagos.class);
-            //startActivity(i);
+           /* Intent i =  new Intent(getApplicationContext(),pagos.class);
+            startActivity(i);*/
+
             System.out.println("Lo preciono");
             try {
                 conexion instancia_conexion = new conexion();
@@ -229,9 +230,10 @@ public class menu extends AppCompatActivity
                 System.out.println(respuest_metodo);
                 JSONArray json = new JSONArray(respuest_metodo);
                 String datos_pagos[] = new String[json.length()];
+//parte del problema 	cambios al recibir archivos
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject oneObject = json.getJSONObject(i);
-                    datos_pagos[i] = "Folio: " + oneObject.getString("id_folio" + "  Historial:  " + oneObject.getString("historial") + " FECHA:  " + oneObject.getString("fecha") + " Estatus: " + oneObject.getString("status"));
+                    datos_pagos[i] = "Folio: " + oneObject.getString("id_folio"  + " FECHA:  " + oneObject.getString("fecha") + "Total: " + oneObject.getString("total"));
                     System.out.println("---------------------------"+datos_pagos[i]);
                 }
                 System.out.println("---------------------------SALIO DEL CICLO" );

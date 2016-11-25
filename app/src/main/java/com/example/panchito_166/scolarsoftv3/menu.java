@@ -219,9 +219,9 @@ public class menu extends AppCompatActivity
 
 
         } else if (id == R.id.nav_gallery) {
-           /* Intent i =  new Intent(getApplicationContext(),pagos.class);
-            startActivity(i);*/
-
+            Intent i =  new Intent(getApplicationContext(),pagos.class);
+            startActivity(i);
+/*
             System.out.println("Lo preciono");
             try {
                 conexion instancia_conexion = new conexion();
@@ -230,7 +230,7 @@ public class menu extends AppCompatActivity
                 System.out.println(respuest_metodo);
                 JSONArray json = new JSONArray(respuest_metodo);
                 String datos_pagos[] = new String[json.length()];
-//parte del problema 	cambios al recibir archivos
+//parte del problema 	
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject oneObject = json.getJSONObject(i);
                     datos_pagos[i] = "Folio: " + oneObject.getString("id_folio"  + " FECHA:  " + oneObject.getString("fecha") + "Total: " + oneObject.getString("total"));
@@ -249,7 +249,7 @@ public class menu extends AppCompatActivity
             } catch (JSONException e) {
                 e.printStackTrace();
 
-            }
+            }*/
 
         }
 

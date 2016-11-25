@@ -240,7 +240,7 @@ if (mysqli_num_rows($rs)>0)
 }*/
 
 
-?>
+/*
 
 
 $rs = mysqli_query($con,$sql) or die (mysql_error());
@@ -287,7 +287,7 @@ if (mysqli_num_rows($rs)>0)
 }else {
 	print ('No se encontraron datos');
 }
-}
+}*/
 
 
 ?>

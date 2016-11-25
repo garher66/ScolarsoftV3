@@ -221,43 +221,33 @@ public class menu extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             System.out.println("Message: Entro al evento onclick en pagos");
             Intent i =  new Intent(this,pagos.class);
+            i.putExtra("datos_empresa",rellenar_datos_empresa());
+            i.putExtra("datos_persona", rellenar_datos_persona());
             startActivity(i);
-
-/*
-            System.out.println("Lo preciono");
-            try {
-                conexion instancia_conexion = new conexion();
-                String enviar_parametros[] = {"ID_USUARIO=2", "ID_ALUMNOS=2" , "ID_EMPRESA=1", "ID_CICLO=1", "opcion=4"};
-                String respuest_metodo = instancia_conexion.enviar_consulta(enviar_parametros);
-                System.out.println(respuest_metodo);
-                JSONArray json = new JSONArray(respuest_metodo);
-                String datos_pagos[] = new String[json.length()];
-//parte del problema 	
-                for (int i = 0; i < json.length(); i++) {
-                    JSONObject oneObject = json.getJSONObject(i);
-                    datos_pagos[i] = "Folio: " + oneObject.getString("id_folio"  + " FECHA:  " + oneObject.getString("fecha") + "Total: " + oneObject.getString("total"));
-                    System.out.println("---------------------------"+datos_pagos[i]);
-                }
-                System.out.println("---------------------------SALIO DEL CICLO" );
-                Intent i = new Intent(this, pagos.class);
-                i.putExtra("datos_pago", datos_pagos);
-
-                startActivity(i);
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-
-            }*/
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
+    }
+
+    public String[] rellenar_datos_empresa(){
+        String datos_empresa[] = new String[4];
+        datos_empresa[0]="Scolar Software";
+        datos_empresa[1]= "Villahermosa, Tabasco";
+        datos_empresa[2]="Scolar@hotmail.com";
+        datos_empresa[3]="3-15-68-19";
+        return  datos_empresa;
+    }
+    public String[] rellenar_datos_persona(){
+        String datos_persona[] = new String[6];
+        datos_persona[0] = datos_personales_.getNombre_completo();
+        datos_persona[1] = datos_personales_.getGrado();
+        datos_persona[2] = datos_personales_.getGrupo();
+        datos_persona[3] = datos_personales_.getCiclo_escolar();
+        datos_persona[4] = datos_personales_.getNombre_nivel();
+        datos_persona[5] = datos_personales_.getMatricula();
+        return datos_persona;
     }
 }

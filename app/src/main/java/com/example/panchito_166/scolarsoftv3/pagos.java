@@ -1,4 +1,5 @@
 package com.example.panchito_166.scolarsoftv3;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
@@ -19,7 +20,8 @@ public class pagos extends AppCompatActivity {
     private  String[] total_array ={"Pago","9584","7692"};
     private  String[] folio_array = {"Folio","72","75"};
 
-
+    private String datos_persona[];
+    private String datos_empresa[];
 
 
     @Override
@@ -29,6 +31,9 @@ public class pagos extends AppCompatActivity {
         folio = (ListView) findViewById(R.id.listView);
         fecha = (ListView) findViewById(R.id.listView2);
         total = (ListView) findViewById(R.id.listView3);
+
+        datos_empresa = getIntent().getStringArrayExtra("datos_empresa");
+        datos_persona = getIntent().getStringArrayExtra("datos_persona");
 
         folio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -76,34 +81,15 @@ public class pagos extends AppCompatActivity {
         ArrayAdapter<String> total_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, total_array);
         total.setAdapter(total_adaptador);
 
-       /* list = (ListView)findViewById(R.id.listView);
-        lista = (ListView) findViewById(R.id.listView2);
-        totales = (ListView) findViewById(R.id.listView3);
-        //folios = (ListView) findViewById(R.id.listView4);
-        System.out.println("-------------------------Entro a pagos.class");
-        String datos[] = getIntent().getStringArrayExtra("datos_pago");
-        System.out.println("-------------------------DATOS ENVIADOS: : : : : " + datos[0]);
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
-        list.setAdapter(adaptador);
-        */
-/*
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sistemas);
-        list.setAdapter(adaptador);
-
-        ArrayAdapter<String> adaptado = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, fecha);
-        lista.setAdapter(adaptado);
-
-        ArrayAdapter<String> tot = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, total);
-        totales.setAdapter(tot);
-
-        ArrayAdapter<String> fol = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, folio);
-        totales.setAdapter(fol);
-
-*/
     }
 
     public void ticket(int posicion){
         String valor_folio = folio_array[posicion];
-
+        System.out.println("-------------------------------Folio: " + valor_folio);
+        Intent i =  new Intent(this,ticket.class);
+        i.putExtra("datos_empresa",datos_empresa);
+        i.putExtra("datos_persona", datos_persona);
+        i.putExtra("folio", valor_folio);
+        startActivity(i);
     }
 }

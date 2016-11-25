@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.panchito_166.scolarsoftv3.verificacion">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView7"
+        android:layout_above="@+id/textView9"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_toStartOf="@+id/textView4" />
+
+    <TextView
+        android:text="RECIBO DE PAGO DE COLEGIATURA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:id="@+id/textView24"
+        android:layout_below="@+id/imageView7"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Nombre de la empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView24"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txt_nombre_empresa" />
+
+    <TextView
+        android:text="Dirección"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre_empresa"
+        android:id="@+id/txt_direccion"
+        android:layout_alignEnd="@+id/txt_nombre_empresa"
+        android:layout_alignStart="@+id/txt_nombre_empresa" />
+
+    <TextView
+        android:text="correo_electronico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_direccion"
+        android:layout_alignStart="@+id/txt_direccion"
+        android:id="@+id/txt_correo"
+        android:layout_alignEnd="@+id/txt_direccion" />
+
+    <TextView
+        android:text="telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_correo"
+        android:layout_alignStart="@+id/txt_correo"
+        android:id="@+id/txt_telefono"
+        android:layout_alignEnd="@+id/txt_correo" />
+
+    <TextView
+        android:text="Folio: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_telefono"
+        android:layout_toEndOf="@+id/imageView7"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="26dp"
+        android:id="@+id/Folio" />
+
+    <TextView
+        android:text="1000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Folio"
+        android:layout_toEndOf="@+id/Folio"
+        android:id="@+id/txt_folio" />
+
+    <TextView
+        android:text="fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Folio"
+        android:layout_alignStart="@+id/Folio"
+        android:id="@+id/txt_fecha" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:id="@+id/view"
+        android:layout_below="@+id/txt_fecha"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:text="Alumno: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_toEndOf="@+id/imageView7"
+        android:layout_marginTop="21dp"
+        android:id="@+id/textView32" />
+
+    <TextView
+        android:text="Nombre del alumno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView32"
+        android:layout_alignStart="@+id/textView24"
+        android:id="@+id/txt_nombre"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Grado: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/grado"
+        android:layout_below="@+id/textView32"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="6to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre"
+        android:layout_alignStart="@+id/txt_nombre"
+        android:id="@+id/txt_grado" />
+
+    <TextView
+        android:text="Grupo: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre"
+        android:layout_alignStart="@+id/txt_telefono"
+        android:id="@+id/grupo" />
+
+    <TextView
+        android:text="A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre"
+        android:layout_toEndOf="@+id/grupo"
+        android:id="@+id/txt_grupo" />
+
+    <TextView
+        android:text="ciclo_agosto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre"
+        android:id="@+id/txt_ciclo"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView38" />
+
+    <TextView
+        android:text="Ciclo:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView38"
+        android:layout_marginStart="20dp"
+        android:layout_alignBaseline="@+id/txt_ciclo"
+        android:layout_alignBottom="@+id/txt_ciclo"
+        android:layout_toEndOf="@+id/txt_grupo" />
+
+    <TextView
+        android:text="Escolaridad: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grado"
+        android:layout_toEndOf="@+id/imageView7"
+        android:id="@+id/textView40" />
+
+    <TextView
+        android:text="Escolaridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_grado"
+        android:id="@+id/txt_escolaridad"
+        android:layout_toEndOf="@+id/txt_grado" />
+
+    <TextView
+        android:text="Matricula:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_ciclo"
+        android:layout_alignStart="@+id/textView38"
+        android:id="@+id/textView42" />
+
+    <TextView
+        android:text="421411323"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_ciclo"
+        android:id="@+id/txt_matricula"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView42" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:id="@+id/view2"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/textView40"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

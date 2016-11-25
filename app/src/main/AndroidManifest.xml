@@ -24,7 +24,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".asignaturas" />
         <activity android:name=".calificaciones" />
-        <activity android:name=".pagos"></activity>
+        <activity android:name=".pagos">
+            <activity android:name=".ticket" />
+        </activity>
     </application>
 
 </manifest>

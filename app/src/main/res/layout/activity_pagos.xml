@@ -34,18 +34,24 @@
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/listView" />
+            android:id="@+id/listView"
+            android:layout_weight="100"
+            />
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/listView2"
-            android:layout_column="2" />
+            android:layout_column="2"
+            android:layout_weight="100"
+            />
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/listView3" />
+            android:id="@+id/listView3"
+            android:layout_weight="100"
+            />
 
     </TableRow>
 

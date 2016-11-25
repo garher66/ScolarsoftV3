@@ -219,8 +219,10 @@ public class menu extends AppCompatActivity
 
 
         } else if (id == R.id.nav_gallery) {
-            Intent i =  new Intent(getApplicationContext(),pagos.class);
+            System.out.println("Message: Entro al evento onclick en pagos");
+            Intent i =  new Intent(this,pagos.class);
             startActivity(i);
+
 /*
             System.out.println("Lo preciono");
             try {

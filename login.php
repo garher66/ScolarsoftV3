@@ -7,6 +7,9 @@ session_start();
    		    $password=$_GET["password"];
    		    $ID_USUARIO=$_GET["ID_USUARIO"];
    		    $ID_CICLO=$_GET["ID_CICLO"];
+   		    $ID_EMPRESA=$_GET["ID_EMPRESA"];
+   		    $ID_FOLIO=$_GET["ID_FOLIO"];
+
    		  
 
 if($_GET['opcion']==1){
@@ -95,7 +98,6 @@ where u.ID_USUARIO='".$ID_USUARIO."'";
 	print json_encode($datos);
 	//echo '<script>window.open("login.php?opcion=4","_blank")</script>';
 }
-
 if ($_GET['opcion']==4){
 
 	$sql="select f.id_folio,concat('pago de colegiatura del mes:',m.nombre) as historial,f.fecha,f.total,cn.precio,f.subtotal,f.descuento,
@@ -154,6 +156,107 @@ if (mysqli_num_rows($rs)>0)
 }
 }
 
+if ($_GET['opcion']==5){
+$sql="select f.id_folio,f.fecha,f.total
+from folio as f 
+inner join colegiatura as c on f.id_folio=c.id_folio
+inner join meses m on c.id_mes=m.id_mes
+inner join costo_nivel as cn on c.id_costo_nivel=cn.id_costo_nivel 
+inner join empresa as e on f.id_empresa=e.ID_EMPRESA
+inner join alumnos as a on a.ID_ALUMNOS=f.id_alumnos
+inner join personas as per on per.ID_PERSONA=a.ID_PERSONA
+inner join usuario as u on u.ID_PERSONA=per.ID_PERSONA
+inner join datos_alumnos as da on da.ID_ALUMNOS=a.ID_ALUMNOS
+inner join datos_grupos as dg on dg.ID_DATOGRUPO=da.ID_DATOGRUPO
+inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
+inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
+inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
+inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
+where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO
+union 
+select f.id_folio,f.fecha,f.total
+from  folio as f
+inner join detalle_folio as df  on f.id_folio=df.id_folio
+inner join productos as p on p.id_producto=df.id_producto
+inner join empresa as e  on f.id_empresa=e.ID_EMPRESA
+inner join alumnos as a on a.ID_ALUMNOS=f.id_alumnos
+inner join personas as per on per.ID_PERSONA=a.ID_PERSONA
+inner join usuario as u on u.ID_PERSONA=per.ID_PERSONA
+inner join datos_alumnos as da on da.ID_ALUMNOS=a.ID_ALUMNOS
+inner join datos_grupos as dg on dg.ID_DATOGRUPO=da.ID_DATOGRUPO
+inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
+inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
+inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
+inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
+where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO";
+
+$rs=mysqli_query($con,$sql);
+	   $i=0;
+	   while ($row=mysqli_fetch_array($rs)) {	
+
+	   	$datos[$i]=array("id_folio"=>$row[0],"fecha"=>$row[1],"total"=>$row[2]);
+	   		$i=$i+1; 
+	   	}
+	   		$rs = mysqli_query($con,$sql) or die (mysql_error());
+if (mysqli_num_rows($rs)>0)
+{
+	print json_encode($datos);
+}else {
+	print ('No se encontraron datos');
+}
+}
+
+if ($_GET['opcion']==6) {
+	$sql="select '1' as cantidad, concat('pago de colegiatura del mes:',m.nombre) as descripcion,cn.precio
+from folio as f
+inner join colegiatura as c on f.id_folio=c.id_folio
+inner join meses m on c.id_mes=m.id_mes
+inner join costo_nivel as cn on c.id_costo_nivel=cn.id_costo_nivel 
+inner join empresa as e on f.id_empresa=e.ID_EMPRESA
+inner join alumnos as a on a.ID_ALUMNOS=f.id_alumnos
+inner join personas as per on per.ID_PERSONA=a.ID_PERSONA
+inner join usuario as u on u.ID_PERSONA=per.ID_PERSONA
+inner join datos_alumnos as da on da.ID_ALUMNOS=a.ID_ALUMNOS
+inner join datos_grupos as dg on dg.ID_DATOGRUPO=da.ID_DATOGRUPO
+inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
+inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
+inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
+inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
+where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO
+union 
+select df.cantidad as cantidad,df.descripcion,df.precio
+from  folio as f
+inner join detalle_folio as df  on f.id_folio=df.id_folio
+inner join productos as p on p.id_producto=df.id_producto
+inner join empresa as e  on f.id_empresa=e.ID_EMPRESA
+inner join alumnos as a on a.ID_ALUMNOS=f.id_alumnos
+inner join personas as per on per.ID_PERSONA=a.ID_PERSONA
+inner join usuario as u on u.ID_PERSONA=per.ID_PERSONA
+inner join datos_alumnos as da on da.ID_ALUMNOS=a.ID_ALUMNOS
+inner join datos_grupos as dg on dg.ID_DATOGRUPO=da.ID_DATOGRUPO
+inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
+inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
+inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
+inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
+where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO";
+$rs=mysqli_query($con,$sql);
+	   $i=0;
+	   while ($row=mysqli_fetch_array($rs)) {	
+
+	   	$datos[$i]=array("cantidad"=>$row[0],"descripcion"=>$row[1],"precio"=>$row[2]);
+	   		$i=$i+1; 
+	   	}
+	   		$rs = mysqli_query($con,$sql) or die (mysql_error());
+if (mysqli_num_rows($rs)>0)
+{
+	print json_encode($datos);
+}else {
+	print ('No se encontraron datos');
+}
+
+}
+
+
 /*
 
 if ($_GET['opcion']==4){
@@ -192,56 +295,6 @@ group by id_folio ";
 		$datos[$i]=array("id_folio"=>$row[0],"id_usuario"=>$row[1],"historial"=>$row[2],"fecha"=>$row[3],"total"=>$row[4],"subtotal"=>$row[5],"descuento"=>$row[6],"recargo"=>$row[7],"status"=>$row[8]);
 			$i=$i+1; 
 	}
-
-$rs = mysqli_query($con,$sql) or die (mysql_error());
-if (mysqli_num_rows($rs)>0)
-{
-	print json_encode($datos);
-}else {
-	print ('No se encontraron datos');
-}
-	
-}
-if ($_GET['opcion']==5){
-
-$sql="select f.id_folio,concat('pago de colegiatura del mes:',m.nombre),f.fecha,f.total,cn.precio,f.subtotal,f.descuento,
-f.recargo,'1' as cantidad, e.LOGO,e.COLEGIO,e.COLEGIO_DIRECCION,e.CORREO,e.COLEGIO_CONTACTO 
-from folio as f 
-inner join colegiatura as c on f.id_folio=c.id_folio
-inner join meses m on c.id_mes=m.id_mes
-inner join costo_nivel as cn on c.id_costo_nivel=cn.id_costo_nivel 
-inner join empresa as e on f.id_empresa=e.ID_EMPRESA	
-where f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO
-union 
-select f.id_folio, df.descripcion,f.fecha,f.total,df.precio,f.subtotal,f.descuento,f.recargo,df.cantidad,e.LOGO,
-e.COLEGIO,e.COLEGIO_DIRECCION,e.CORREO,e.COLEGIO_CONTACTO
-from  folio as f
-inner join detalle_folio as df  on f.id_folio=df.id_folio
-inner join productos as p on p.id_producto=df.id_producto
-inner join empresa as e  on f.id_empresa=e.ID_EMPRESA
-where f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO";
-
-	$rs=mysqli_query($con,$sql);
-	   $i=0;
-	   while ($row=mysqli_fetch_array($rs)) {	
-
-	   	$datos[$i]=array("id_folio"=>$row[0],"historial"=>$row[1],"fecha"=>$row[2],"total"=>$row[3],"precio"=>$row[4],
-	   		"subtotal"=>$row[5],"descuento"=>$row[6],"recargo"=>$row[7],"cantidad"=>$row[8],"LOGO"=>$row[9],"COLEGIO"=>$row[10],
-	   		"COLEGIO_DIRECCION"=>$row[11],"CORREO"=>$row[12],"COLEGIO_CONTACTO"=>$row[13]);
-	   		$i=$i+1; 
-	   	}
-	   		$rs = mysqli_query($con,$sql) or die (mysql_error());
-if (mysqli_num_rows($rs)>0)
-{
-	print json_encode($datos);
-}else {
-	print ('No se encontraron datos');
-}
-}*/
-
-
-/*
-
 
 $rs = mysqli_query($con,$sql) or die (mysql_error());
 if (mysqli_num_rows($rs)>0)

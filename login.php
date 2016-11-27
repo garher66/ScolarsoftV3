@@ -172,7 +172,7 @@ inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
 inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
 inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
 inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
-where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO
+where u.ID_USUARIO=$ID_USUARIO 
 union 
 select f.id_folio,f.fecha,f.total
 from  folio as f
@@ -188,7 +188,7 @@ inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
 inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
 inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
 inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
-where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO";
+where u.ID_USUARIO=$ID_USUARIO ";
 
 $rs=mysqli_query($con,$sql);
 	   $i=0;
@@ -222,7 +222,7 @@ inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
 inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
 inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
 inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
-where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO
+where  f.id_folio=$ID_FOLIO
 union 
 select df.cantidad as cantidad,df.descripcion,df.precio
 from  folio as f
@@ -238,7 +238,7 @@ inner join grupos as g on g.ID_GRUPO=dg.ID_GRUPO
 inner join grado as gr on gr.ID_GRADO=dg.ID_GRADO
 inner join nivel_educativo as n on n.ID_NIVEL=dg.ID_NIVEL
 inner join ciclo_escolar as ci on ci.ID_CICLO=dg.ID_CICLO
-where u.ID_USUARIO=$ID_USUARIO and f.id_empresa=$ID_EMPRESA and f.id_ciclo=$ID_CICLO and f.id_folio=$ID_FOLIO";
+where f.id_folio=$ID_FOLIO";
 $rs=mysqli_query($con,$sql);
 	   $i=0;
 	   while ($row=mysqli_fetch_array($rs)) {	

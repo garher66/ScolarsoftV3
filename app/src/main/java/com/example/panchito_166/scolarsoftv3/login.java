@@ -39,6 +39,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         // try {cambiar_datos_usuario();} catch (IOException e) {e.printStackTrace();}
         //catch (JSONException e) {e.printStackTrace();}
+
     }
 
 
@@ -69,7 +70,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         }
         return resul.toString();
     }
-
 
     @Override
     public void onClick(View view) {

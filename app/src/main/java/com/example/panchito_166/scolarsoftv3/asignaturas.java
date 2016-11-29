@@ -59,11 +59,11 @@ public class asignaturas extends AppCompatActivity {
     private void valores(int position){
         i = new Intent(this,calificaciones.class);
         String valor[] = new String[5];
-        valor[0] = "PRIMER PARCIAL:" + id_materias1[position];
-        valor[1] = "SEGUNDO PARCIAL:" + id_materias2[position];
-        valor[2] = "TERCERO PARCIAL:" + id_materias3[position];
-        valor[3] = "CUARTO PARCIAL:" + id_materias4[position];
-        valor[4] = "QUINTO PARCIAL:" + id_materias5[position];
+        valor[0] = "1 Parcial:"+"_______________________"+ id_materias1[position];
+        valor[1] = "2 Parcial:"+"_______________________"+ id_materias2[position];
+        valor[2] = "3 Parcial:"+"_______________________"+ id_materias3[position];
+        valor[3] = "4 Parcial:"+"_______________________"+ id_materias4[position];
+        valor[4] = "5 Parcial:"+"_______________________"+ id_materias5[position];
         i.putExtra("datos", valor);
         startActivity(i);
     }

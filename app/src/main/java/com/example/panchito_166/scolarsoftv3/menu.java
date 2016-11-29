@@ -241,13 +241,14 @@ public class menu extends AppCompatActivity
         return  datos_empresa;
     }
     public String[] rellenar_datos_persona(){
-        String datos_persona[] = new String[6];
+        String datos_persona[] = new String[7];
         datos_persona[0] = datos_personales_.getNombre_completo();
         datos_persona[1] = datos_personales_.getGrado();
         datos_persona[2] = datos_personales_.getGrupo();
         datos_persona[3] = datos_personales_.getCiclo_escolar();
         datos_persona[4] = datos_personales_.getNombre_nivel();
         datos_persona[5] = datos_personales_.getMatricula();
+        datos_persona[6] = datos_personales_.getClave_usuario();
         return datos_persona;
     }
 }

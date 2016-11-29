@@ -8,6 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.List;
 
 
@@ -22,6 +27,10 @@ public class pagos extends AppCompatActivity {
 
     private String datos_persona[];
     private String datos_empresa[];
+
+    String tmp_folio[];
+    String tmp_fecha[];
+    String tmp_total[];
 
 
     @Override
@@ -72,24 +81,58 @@ public class pagos extends AppCompatActivity {
             total.getLayoutParams().width=alto*1/5;
         }
 
-        ArrayAdapter<String> folio_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, folio_array);
+        conexion instancia_conexion = new conexion();
+        //String enviar_parametros[] = {"ID_USUARIO=" + datos_persona[7], "opcion=5"};
+        String enviar_parametros[] = {"ID_USUARIO=" + datos_persona[6], "opcion=5"};
+        System.out.println("---------------------ID" + datos_persona[6]);
+        String respuest_metodo = null;
+        try {
+            respuest_metodo = instancia_conexion.enviar_consulta(enviar_parametros);
+            JSONArray json = new JSONArray(respuest_metodo);
+            tmp_folio = new String[json.length()+1];
+            tmp_fecha = new String[json.length()+1];
+            tmp_total = new String[json.length()+1];
+
+            tmp_fecha[0]="FECHA"; tmp_folio[0]="FOLIO"; tmp_total[0]="TOTAL";
+            if (json.length()>0){
+            for (int i = 0; i < json.length(); i++) {
+                JSONObject oneObject = json.getJSONObject(i);
+                tmp_fecha[i+1] = oneObject.getString("fecha");
+                tmp_folio[i+1] = oneObject.getString("id_folio");
+                tmp_total[i+1] = oneObject.getString("total");
+            }
+            }else{
+                tmp_fecha[1]=""; tmp_folio[1]=""; tmp_total[1]="";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+        ArrayAdapter<String> folio_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tmp_folio);
         folio.setAdapter(folio_adaptador);
 
-        ArrayAdapter<String> fecha_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fecha_array);
+        ArrayAdapter<String> fecha_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tmp_fecha);
         fecha.setAdapter(fecha_adaptador);
 
-        ArrayAdapter<String> total_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, total_array);
+        ArrayAdapter<String> total_adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tmp_total);
         total.setAdapter(total_adaptador);
 
     }
 
     public void ticket(int posicion){
-        String valor_folio = folio_array[posicion];
+        String valor_folio = tmp_folio[posicion];
+        if (tmp_folio[posicion]!=""){
         System.out.println("-------------------------------Folio: " + valor_folio);
         Intent i =  new Intent(this,ticket.class);
         i.putExtra("datos_empresa",datos_empresa);
         i.putExtra("datos_persona", datos_persona);
         i.putExtra("folio", valor_folio);
+        i.putExtra("fecha", tmp_fecha[posicion]);
         startActivity(i);
+        }
     }
 }

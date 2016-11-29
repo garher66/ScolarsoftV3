@@ -45,8 +45,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
 
     public String enviarDatosGET(String usuario, String password) {
-        usuario = "etzil_ale@hotmail.com";
-        password="alumno01";
+        //usuario = "etzil_ale@hotmail.com";
+        //password="alumno01";
 
         URL url = null;
         String linea = "";

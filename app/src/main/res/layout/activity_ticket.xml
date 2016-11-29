@@ -7,10 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/c"
     tools:context="com.example.panchito_166.scolarsoftv3.verificacion">
-
-
-
 
     <ImageView
         android:layout_width="wrap_content"
@@ -36,7 +34,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView24"
         android:layout_centerHorizontal="true"
-        android:id="@+id/txt_nombre_empresa" />
+        android:id="@+id/txt_nombre_empresa"
+        android:padding="5dp" />
 
     <TextView
         android:text="CARR. VHSA-TEAPA KM 10, HUAPINOL PARRILLA, CENTRO, TABASCO"
@@ -44,33 +43,34 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_nombre_empresa"
         android:id="@+id/txt_direccion"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:padding="5dp" />
 
     <TextView
         android:text="colegio@hotmail.com"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_correo"
+        android:padding="5dp"
         android:layout_below="@+id/txt_direccion"
-        android:layout_toEndOf="@+id/textView31" />
+        android:layout_toStartOf="@+id/txt_subtotal" />
 
     <TextView
         android:text="Tel: 3555171"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_telefono"
+        android:padding="5dp"
         android:layout_below="@+id/txt_correo"
-        android:layout_toEndOf="@+id/txt_escolaridad" />
+        android:layout_toEndOf="@+id/txt_grupo" />
 
     <TextView
         android:text="Folio: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_telefono"
-        android:layout_toEndOf="@+id/imageView7"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="26dp"
-        android:id="@+id/Folio" />
+        android:id="@+id/Folio"
+        android:layout_below="@+id/textView25"
+        android:layout_alignEnd="@+id/textView32" />
 
     <TextView
         android:text="1000"
@@ -91,7 +91,7 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black"
+        android:background="@color/x"
         android:id="@+id/view"
         android:layout_below="@+id/txt_fecha"
         android:layout_alignParentStart="true"
@@ -135,17 +135,17 @@
         android:text="Grupo: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_nombre"
-        android:layout_alignStart="@+id/txt_telefono"
-        android:id="@+id/grupo" />
+        android:id="@+id/grupo"
+        android:layout_alignTop="@+id/txt_grupo"
+        android:layout_alignStart="@+id/txt_correo" />
 
     <TextView
         android:text="A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txt_grupo"
         android:layout_below="@+id/txt_nombre"
-        android:layout_toEndOf="@+id/grupo"
-        android:id="@+id/txt_grupo" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="ciclo_agosto"
@@ -170,39 +170,40 @@
         android:text="Escolaridad: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/grado"
-        android:layout_toEndOf="@+id/imageView7"
-        android:id="@+id/textView40" />
+        android:id="@+id/textView40"
+        android:layout_alignTop="@+id/txt_escolaridad"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Escolaridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_grado"
         android:id="@+id/txt_escolaridad"
+        android:layout_alignTop="@+id/textView42"
         android:layout_toEndOf="@+id/txt_grado" />
 
     <TextView
         android:text="Matricula:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textView42"
+        android:padding="5dp"
         android:layout_below="@+id/txt_ciclo"
-        android:layout_alignStart="@+id/textView38"
-        android:id="@+id/textView42" />
+        android:layout_alignStart="@+id/txt_telefono" />
 
     <TextView
         android:text="421411323"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_ciclo"
         android:id="@+id/txt_matricula"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView42" />
+        android:padding="5dp"
+        android:layout_below="@+id/txt_ciclo"
+        android:layout_alignEnd="@+id/ln_total" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black"
+        android:background="@color/x"
         android:id="@+id/view2"
         android:layout_marginTop="21dp"
         android:layout_below="@+id/textView40"
@@ -212,14 +213,14 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black"
+        android:background="@color/x"
         android:id="@+id/views"
-        android:layout_below="@+id/textView30" />
+        />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black"
+        android:background="@color/x"
         android:id="@+id/view3"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/imageView7"
@@ -238,82 +239,95 @@
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/view2"
         android:layout_alignBottom="@+id/view3"
-        android:layout_alignStart="@+id/txt_escolaridad"
-        android:layout_toStartOf="@+id/textView42"
-        android:id="@+id/ln_descripcion" />
+        android:id="@+id/ln_descripcion"
+        android:layout_alignStart="@+id/grupo"
+        android:layout_toStartOf="@+id/txt_recargo" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/txt_telefono"
+        android:layout_toEndOf="@+id/ln_descripcion"
         android:layout_above="@+id/view3"
         android:layout_below="@+id/view2"
         android:id="@+id/ln_total" />
 
     <TextView
-        android:text="SUBTOTAL:"
+        android:text=" SUBTOTAL $:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/textView38"
-        android:layout_marginBottom="48dp"
-        android:id="@+id/textView26" />
+        android:id="@+id/textView26"
+        android:padding="5dp"
+        android:layout_below="@+id/ln_total"
+        android:layout_alignEnd="@+id/textView28" />
 
     <TextView
         android:text="00.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txt_subtotal"
         android:layout_alignBottom="@+id/textView26"
-        android:layout_alignEnd="@+id/txt_nombre_empresa"
-        android:id="@+id/txt_subtotal" />
+        android:layout_toEndOf="@+id/textView42" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView28"
-        android:layout_below="@+id/txt_subtotal"
-        android:layout_toEndOf="@+id/txt_correo"
-        android:text="RECARGO:" />
+        android:text="RECARGO $:"
+        android:padding="5dp"
+        android:layout_alignTop="@+id/txt_recargo"
+        android:layout_alignEnd="@+id/textView39" />
 
     <TextView
         android:text="00.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txt_recargo"
+        android:padding="5dp"
         android:layout_below="@+id/txt_subtotal"
-        android:layout_toStartOf="@+id/txt_matricula"
-        android:id="@+id/txt_recargo" />
+        android:layout_alignEnd="@+id/txt_subtotal" />
 
     <TextView
-        android:text="DESCUENTO: "
+        android:text="DESCUENTO $: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/Descuento_"
         android:layout_below="@+id/textView28"
-        android:layout_alignStart="@+id/textView28"
-        android:id="@+id/Descuento_" />
+        android:layout_alignStart="@+id/txt_correo" />
 
     <TextView
         android:text="00.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_recargo"
-        android:layout_alignStart="@+id/txt_subtotal"
-        android:id="@+id/txt_descuento" />
+        android:id="@+id/txt_descuento"
+        android:layout_alignTop="@+id/Descuento_"
+        android:layout_toEndOf="@+id/textView42" />
 
     <TextView
-        android:text="TOTAL:"
+        android:text="TOTAL $:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textView39"
+        android:padding="5dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/Descuento_"
-        android:id="@+id/textView39" />
+        android:layout_alignEnd="@+id/Descuento_" />
 
     <TextView
         android:text="00.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txt_total"
+        android:padding="5dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/txt_descuento"
-        android:id="@+id/txt_total" />
+        android:layout_alignStart="@+id/txt_descuento" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tel:"
+        android:id="@+id/textView25"
+        android:padding="5dp"
+        android:layout_below="@+id/txt_correo"
+        android:layout_alignEnd="@+id/txt_escolaridad" />
 
 
 </RelativeLayout>

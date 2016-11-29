@@ -42,9 +42,6 @@ public class ticket extends AppCompatActivity {
         llenar_recibo();
        // llenar_datos_empresa();
 
-
-
-
     }
 
     public void llamar_objetos(){

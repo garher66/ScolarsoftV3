@@ -19,7 +19,7 @@
         android:paddingLeft="60dp"
         android:paddingRight="50dp"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/txt_matricula" />
+        android:layout_alignEnd="@+id/txt_nombre" />
 
     <TextView
         android:layout_width="wrap_content"
